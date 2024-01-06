@@ -5,12 +5,19 @@ class CustomErrorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      "Try again Later.",
-      style: TextStyle(
-        fontSize: 32,
-        color: Colors.white,
-        fontWeight: FontWeight.w600,
+    return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "Try again Later.",
+            style: TextStyle(
+              fontSize: 32,
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
       ),
     );
   }
