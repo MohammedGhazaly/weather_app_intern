@@ -1,9 +1,17 @@
 import 'package:dio/dio.dart';
 
 class ApiServices {
-  final Dio dio = Dio();
+  static final Dio dio = Dio()
+    ..interceptors.add(LogInterceptor(
+      responseBody: true,
+      error: true,
+      requestHeader: true,
+      responseHeader: true,
+      request: true,
+      requestBody: true,
+    ));
 
-  Future<Response<dynamic>> getData(
+  static Future<Response<dynamic>> getData(
       {required String path, Map<String, dynamic>? queryParameters}) async {
     final response = await dio.get(
       path,
