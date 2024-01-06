@@ -9,14 +9,11 @@ class WeatherApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<WeatherSearchProvider>(
-      create: (context) {
-        return WeatherSearchProvider();
-      },
-      child: MaterialApp(
-          home: const WeatherSearchView(),
-          title: 'Weather App',
-          theme: AppTheme.lightTheme),
+    final prov = Provider.of<WeatherSearchProvider>(context);
+    return MaterialApp(
+      home: const WeatherSearchView(),
+      title: 'Weather App',
+      theme: prov.isDay == true ? AppTheme.lightTheme : AppTheme.darkTheme,
     );
   }
 }

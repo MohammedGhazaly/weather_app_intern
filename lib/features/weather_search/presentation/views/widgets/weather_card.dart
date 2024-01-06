@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/features/weather_search/data/models/weather_model_response/day.dart';
 
 class WeatherCard extends StatelessWidget {
-  const WeatherCard({super.key});
+  final int index;
+  final Day day;
+  const WeatherCard({super.key, required this.index, required this.day});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class WeatherCard extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "7",
+            index.toString(),
             style: TextStyle(
                 fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500),
           ),
@@ -23,23 +26,18 @@ class WeatherCard extends StatelessWidget {
             height: 7,
           ),
           Text(
-            "Sunny",
+            day.condition!.text.toString(),
             style: TextStyle(
                 fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500),
           ),
           SizedBox(
             height: 7,
           ),
-          Icon(
-            Icons.sunny,
-            color: Colors.white,
-            size: 32,
-          ),
           SizedBox(
             height: 7,
           ),
           Text(
-            "20.7",
+            "${day.avgtempC.toString()} celsius ",
             style: TextStyle(
                 fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500),
           ),

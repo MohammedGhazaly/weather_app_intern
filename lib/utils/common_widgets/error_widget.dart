@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomErrorWidget extends StatelessWidget {
-  const CustomErrorWidget({super.key});
+  final String errorMessage;
+  const CustomErrorWidget({super.key, required this.errorMessage});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +11,8 @@ class CustomErrorWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "Try again Later.",
+            errorMessage,
+            textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 32,
               color: Colors.white,

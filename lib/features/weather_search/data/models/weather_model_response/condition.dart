@@ -1,19 +1,19 @@
 class Condition {
-	String? text;
-	String? icon;
-	int? code;
+  String? text;
+  String? icon;
+  num? code;
 
-	Condition({this.text, this.icon, this.code});
+  Condition({this.text, this.icon, this.code});
 
-	factory Condition.fromJson(Map<String, dynamic> json) => Condition(
-				text: json['text'] as String?,
-				icon: json['icon'] as String?,
-				code: json['code'] as int?,
-			);
+  factory Condition.fromJson(Map<String, dynamic> json) => Condition(
+        text: json['text'] as String?,
+        icon: json['icon'] as String?,
+        code: json['code'] as num?,
+      );
 
-	Map<String, dynamic> toJson() => {
-				'text': text,
-				'icon': icon,
-				'code': code,
-			};
+  Map<String, dynamic> toJson() => {
+        'text': text,
+        'icon': icon,
+        'code': code,
+      };
 }
