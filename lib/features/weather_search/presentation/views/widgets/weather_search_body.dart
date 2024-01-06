@@ -5,6 +5,7 @@ import 'package:weather_app/features/weather_search/presentation/views/widgets/w
 import 'package:weather_app/features/weather_search/presentation/views/widgets/weather_condition_section.dart';
 import 'package:weather_app/utils/app_colors.dart';
 import 'package:weather_app/utils/app_strings.dart';
+import 'package:weather_app/utils/common_widgets/error_widget.dart';
 
 class WeatherSearchBody extends StatelessWidget {
   const WeatherSearchBody({super.key});
@@ -14,23 +15,45 @@ class WeatherSearchBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           CustomSearchField(),
-          CityLocationSection(),
-          WeatherConditionSection(),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                WeatherCard(),
-                WeatherCard(),
-                WeatherCard(),
-              ],
-            ),
-          )
+          Expanded(
+            child: SuccessWidgets(),
+          ),
         ],
       ),
+    );
+  }
+}
+
+class SuccessWidgets extends StatelessWidget {
+  const SuccessWidgets({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Spacer(),
+        CityLocationSection(),
+        Spacer(),
+        WeatherConditionSection(),
+        Spacer(),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              WeatherCard(),
+              WeatherCard(),
+              WeatherCard(),
+            ],
+          ),
+        ),
+        Spacer(),
+      ],
     );
   }
 }
